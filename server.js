@@ -44,6 +44,18 @@ app.get("/v3", (req, res) => {
 }
 )
 
+app.post("/vuj", (req, res) => {
+    const sql = "INSERT INTO `teliolimpia`.`versenyzok` (`ID`, `versenyzo`) VALUES ('9', 'lklkj')";
+    const values = [req.body.ID, req.body.versenyzo];
+    db.query(sql, (err, result) => {
+        if (err) return res.status(500).json({error: "Hibás adatbázis művelet!"});
+        return res.json(result);
+    }
+
+    )
+}   
+)
+
 
 
 
