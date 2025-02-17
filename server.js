@@ -11,8 +11,8 @@ const db = mysql.createConnection(
         user: "root",
         host: "localhost",
         port: 3306,
-        password:"",
-        database:"teliolimpia"
+        password: "Hengersor35",
+        database: "teliolimpia"
     }
 )
 
@@ -23,6 +23,28 @@ app.get("/", (req, res) => {
 }
 
 )
+app.get("/v", (req, res) => {
+    const sql = "SELECT * FROM versenyzok";
+    db.query(sql, (err, result) => {
+        if (err) return res.json(err);
+        return res.json(result);
+    }
+
+    )
+}
+)
+app.get("/v3", (req, res) => {
+    const sql = "SELECT * FROM teliolimpia.versenyzok where  ID = 3";
+    db.query(sql, (err, result) => {
+        if (err) return res.json(err);
+        return res.json(result);
+    }
+
+    )
+}
+)
+
+
 
 
 app.listen(3000, () => {
